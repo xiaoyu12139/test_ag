@@ -1,3 +1,4 @@
+
 l = [1,2,3,4,5]
 print(l)
 print(*l)
@@ -13,6 +14,7 @@ print(l[1:])
 # def solve1(a, b):
 #     return a + b
 #
+
 @ag_test(cases=[(1, 2)], expected=[4])
 def solve1(a, b):
     return a + b

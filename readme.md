@@ -42,3 +42,20 @@ def solve1(a, b):
 ##### 解决每次创建新文件，调试leetcode上复制下来的代码不能直接运行，还要先导入本地的包
 
 Builtin与global。builtin是python内置作用域，global是当前模块的全局变量。通过在启动时添加base模块中的函数变量添加到内置作用域，运行结束在移除进行管理
+
+##### 使用builtin管理时pycharm标红
+
+`# noinspection PyUnresolvedReferences`标红行，上一行添加
+
+✅ 所以如果你想**只对当前项目关掉** `Unresolved Reference`，正确做法是：
+
+1. `File → Settings → Editor → Inspections`
+2. 右上角找到 `Profile` （下拉）
+3. 点 ➕，新建一个 `MyProjectProfile`
+4. 在 `MyProjectProfile`里把`Unresolved References`取消勾选
+5. 应用
+6. 绑定到当前项目
+
+✅ 这样其他项目不受影响，只有当前项目不会检查未解析引用！
+
+打开其他项目可以检查一下是否使用的默认
