@@ -2,15 +2,19 @@ import logging
 
 import pytest
 import os
+import sys
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
+
+test_dir = 'test'
 
 def find_newtest():
     # 获取当前工作目录
     current_dir = os.getcwd()
+    target_dir = os.path.join(current_dir, test_dir)
     # 列出当前文件夹所有文件
-    files = os.listdir(current_dir)
+    files = os.listdir(target_dir)
     # 筛选出以 test_ 开头的文件
     test_files = [f for f in files if f.startswith("test")]
     if not test_files:
@@ -27,7 +31,12 @@ if __name__ == '__main__':
     cmd_str.append('--tb=line')  # 简化输出
     if new_file:
         log.info(f"New file found: {new_file}")
-        cmd_str.append(new_file + "::Solution")
-    cmd_str.extend(['-p','no:warnings']) # 配置忽略警告
+        file_path = os.path.join(test_dir, new_file)
+        # cmd_str.append(file_path + "::Solution")
+        cmd_str.append(file_path)
+    # cmd_str.extend(['-p','no:warnings']) # 配置忽略警告
+    cmd_str.append('--disable-warnings') # 配置忽略警告
+    if len(sys.argv) > 1 and sys.argv[1] == '--debug':
+        cmd_str.append('--log-cli-level=DEBUG')
     log.info(f'cmd_str: {cmd_str}')
     pytest.main(cmd_str)
