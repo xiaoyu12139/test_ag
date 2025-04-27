@@ -38,3 +38,7 @@ def solve1(a, b):
 * 通过`func.__code__.co_varnames`获取包装函数的参数名称
 * 通过`--tb=line`简化输出
 * 通过`--disable-warnings`忽略警告
+
+##### 解决每次创建新文件，调试leetcode上复制下来的代码不能直接运行，还要先导入本地的包
+
+Builtin与global。builtin是python内置作用域，global是当前模块的全局变量。通过在启动时添加base模块中的函数变量添加到内置作用域，运行结束在移除进行管理

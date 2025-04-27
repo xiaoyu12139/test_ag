@@ -6,7 +6,7 @@ print(l[-1])
 print(l[-2])
 print(l[1:])
 
-from base import *
+# from base import *
 # import base
 
 # @base.ag_test(cases=[(1, 2)], expected=[4])

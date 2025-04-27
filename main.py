@@ -1,8 +1,10 @@
+import manage_builtin
 import logging
 
 import pytest
 import os
 import sys
+import base
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
@@ -39,4 +41,9 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == '--debug':
         cmd_str.append('--log-cli-level=DEBUG')
     log.info(f'cmd_str: {cmd_str}')
-    pytest.main(cmd_str)
+    injector = manage_builtin.BuiltinInjector()
+    try:
+        injector.inject_from_module(base)  # 启动时注入
+        pytest.main(cmd_str)
+    finally:
+        injector.cleanup()  # 程序结束时清理
