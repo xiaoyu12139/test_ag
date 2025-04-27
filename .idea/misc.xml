@@ -3,9 +3,4 @@
   <component name="Black">
     <option name="sdkName" value="anaconda-Python 3.12" />
   </component>
-
-  <component name="InspectionProjectProfileManager">
-    <option name="PROJECT_PROFILE" value="MyProjectProfile" />
-    <option name="USE_PROJECT_PROFILE" value="true" />
-  </component>
 </project>

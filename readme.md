@@ -59,3 +59,17 @@ Builtin与global。builtin是python内置作用域，global是当前模块的全
 ✅ 这样其他项目不受影响，只有当前项目不会检查未解析引用！
 
 打开其他项目可以检查一下是否使用的默认
+
+添加自动配置`.idea/misc.xml` 里自动绑定，会使得项目git clone下来后打开自动使用这个配置
+
+```
+<project version="4">
+  <component name="InspectionProjectProfileManager">
+    <option name="PROJECT_PROFILE" value="MyProjectProfile" />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+  </component>
+</project>
+```
+
+
+
